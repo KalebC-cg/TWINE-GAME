@@ -1,0 +1,1470 @@
+:: StoryTitle
+Outcast
+
+
+:: StoryData
+{
+  "ifid": "E729BC54-13F6-4B06-8EA8-C887394C135D",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "intro",
+  "tag-colors": {
+    "Intro": "orange",
+    "intro": "blue",
+    "crazy": "blue",
+    "Health-appears": "purple"
+  },
+  "zoom": 0.6
+}
+
+
+:: \ keep head down {"position":"1300,200","size":"100,100"}
+You don't move depressed and confused , its all too much.
+
+Stranger1:
+
+	OOOK.
+	Are you sad?
+    Lost? 
+    You know, The monsters(------) don't pause or your feelings.
+
+You: 
+            "Monsters.., right?"
+
+Stranger1:
+           '"Change your mind"
+
+
+
+1. [[take her hand]]
+2.[[Slap her hand away]]
+
+
+:: 2ndCombatTurn {"position":"2025,1950","size":"100,100"}
+<<set $roll = random(2,18)>>
+<<set $hitChance = $strength + $roll>>
+
+<<if $hitChance >= $enemy2Difficulty>>
+    <<set $enemy2HP -= 30>>
+    You hit the enemy!
+<<else>>
+    You miss!
+<</if>>
+
+<<if $enemy2HP <= 0>>
+    [[Victory->Savage]]
+<</if>>
+
+<<if $enemy2HP > 0>>
+	<<set $enemy2Roll = random(1,20)>>
+	<<if $enemy2Roll > 10>>
+   		 <<set $hp -= 3>>
+   		 The enemy hits you!
+	<<else>>
+    The enemy misses!
+	<</if>>
+<</if>>
+
+
+<<if $hp <= 0>>
+    [[You fall...->GameOver2]]
+<</if>>
+
+<<if $enemy2HP > 0>>
+[[Continue->Mayhem]]
+<</if>>
+
+
+:: Ask Aiden what he is preparing for {"position":"675,650","size":"100,100"}
+<i>
+              "What are you preparing for Aiden"
+          
+          Aiden:
+               "Well some last minute meeting was called by our father with me and some random others. You know that is how our King is. I wasn't sure I was going, but the servant that told our father seemed serious. "
+               
+               "Serious? What is he talking about."
+               
+ Aiden leans in closer to you. 
+ 
+          Aiden:
+               "I don't know really, but the servants who told me seemed a little spooked. "
+               
+               "Spooked???"
+               
+          Aiden:
+               "Yeh. Oh man wait. I am going to be late. I told Sofia I met her there early as well. I have to go now. Don't think about it too much , kid. I am sure its no big deal"
+    
+Aiden heads out.
+
+[[Hey wait]]
+
+[[Let him go]]
+    
+</i>
+
+
+:: Ask about why is fruit rare {"position":"1475,1325","size":"100,100"}
+
+
+
+:: Ask for some fruit {"position":"1625,1225","size":"100,100"}
+
+
+
+:: Ask more about the meeting. {"position":"150,850","size":"100,100"}
+<i>
+<<set $insight += 2 >>
+ Insight increased to: $insight
+      
+      Frank:
+           "Yeah she didn't say much, and said it was no big deal. When she left she mentioned Aiden and something about...."
+
+All the rest of your siblings walk in and flood the banquet hall. 
+<span style="color:#ffd86b">You</span> think about asking more, but doesn't really matter. The food is here! Everyone is stuffing their face, including Frank. Food takes priority.
+
+
+[[Eat]]
+        
+</i>
+
+
+:: Begin [crazy] {"position":"250,250","size":"100,100"}
+<i>
+
+<p>
+**KNOCK KNOCK**
+
+<span style="color:#d9b3ff">
+
+You </span> jump up out of bed with excitement.
+
+       "What is it Felix . Anything special is happening today. Anything you need help with."
+       
+        Felix:
+       			" Yes my prince, just reminding everyone that the celebration breakfast is starting soon. It won't be the same without everyone being there."
+       
+       You:
+              "Ok Ok, of course I will be there Felix, but it is not for another hour. I am glad that you are excited. Is there anything else special event happening today?"
+        
+        Felix:
+             "Who wouldn't be excited today, I know you are. Plus I am always excited to serve in this household my prince. And no other special event besides going to the King's chamber as well today. I think though I heard your sisters and brothers want to see you later today again as well..
+<<linkreplace "continue">>
+ <p>              "Oh everybody will be at the King's throne hall today. Though what do my siblings want? I am seeing them at breakfest, what more is it."
+ 
+         You:
+              " I wouldn't know, you would have to ask them, they all seemed really excited talking about it."      
+              
+<span style="color:#d9b3ff">
+You </span>snicker.
+        
+        You:
+             "Well, I will dismiss you Filex, Thank You. Happy Alabaster day!"
+             
+             Felix:
+                  "Happy Alabaster day, my prince. Allow me to take my leave."
+                  
+Felix walks away as <span style="color:#d9b3ff">You</span> wave him goodbye. 
+             
+[[Take time getting ready]]
+
+[[Head to the banquet early]]
+</p>
+<</linkreplace>>
+</p>
+</i>
+
+
+:: Chapter 2 [\[\[feast\]\]] {"position":"1375,100","size":"100,100"}
+After the battle people are still looking at you strange. When you return there is a feast for you and your siblings victory in battle. During the feast you see the sibiling you saved whisper soemthing in the kings ear. You feel uneasy, with you yourself not knowing what just happened. After the feast, you go to return to your chambers. Though the sibling you saved wants to have a word with you?
+
+Sibling 1: "Hey we all just wanted to thank you for today, come with me we have a gift for you. We all decided to host you a celebration in the courtyard"
+
+
+1. [[Sure, glad you are safe]]
+2.[[I am going to bed]]
+
+
+:: Chapter Ending {"position":"575,2300","size":"100,100"}
+<i>
+<<set $cosmic_energy += 20>>
+
+Your Cosmic Energy Has Awakended: Power Level is $cosmic_energy
+
+End of Chapter 1
+
+</i>
+
+
+:: Combat {"position":"1550,925","size":"100,100"}
+[[CombatTurn]]
+
+
+:: CombatTurn {"position":"1275,900","size":"100,100"}
+<<set $roll = random(9,15)>>
+<<set $hitChance = $strength + $roll>>
+
+<<if $hitChance >= $enemyDifficulty>>
+    <<set $enemyHP -= 30>>
+    You hit the enemy!
+<<else>>
+    You miss!
+<</if>>
+
+<<if $enemyHP <= 0>>
+    [[Victory->Win]]
+<</if>>
+
+<<if $enemyHP > 0>>
+	<<set $enemyRoll = random(1,20)>>
+	<<if $enemyRoll > 10>>
+   		 <<set $hp -= 3>>
+   		 The enemy hits you!
+	<<else>>
+    The enemy misses!
+	<</if>>
+<</if>>
+
+
+<<if $hp <= 0>>
+    [[You fall...->GameOver]]
+<</if>>
+
+<<if $enemyHP > 0>>
+[[Continue->Combat]]
+<</if>>
+
+
+:: Combat_Loop {"position":"950,2300","size":"100,100"}
+<i>
+[[Combat_Turn]]
+</i>
+
+
+:: Combat_Turn {"position":"1175,2075","size":"100,100"}
+<i>
+<<set $roll = random(1,15)>>
+<<set $hitChance = $cosmic_energy + $roll>>
+
+<<if $hitChance >= $enemyDifficulty>>
+    <<set $enemyHP -= 10>>
+    You hit the enemy!
+    Enemy hp: $enemyHP
+<<else>>
+    You miss!
+<</if>>
+
+<<if $enemyHP <= 0>>
+    [[Victory->Saved?]]
+<</if>>
+
+<<if $enemyHP > 0>>
+	<<set $enemyRoll = random(1,20)>>
+	<<if $enemyRoll > 10>>
+   		 <<set $hp -= 10>>
+   		 The enemy hits you!
+         Your hp: $hp
+	<<else>>
+    The enemy misses!
+	<</if>>
+<</if>>
+
+
+<<if $hp <= 0>>
+     [[You fall...->Its too late]]
+ <<else>>
+     <<if $enemyHP > 0>>
+          [[Continue->Combat_Loop]]
+     <</if>>
+<</if>>
+
+</I>
+
+
+:: Did we try reasoning with them {"position":"925,1575","size":"100,100"}
+<i>
+
+The Garner Soldiers and Your army clash. The soldiers behind you rain down electric arrows that pierce some enemies.
+<span style="color:#d9b3ff">You</span> heat up the yellow energy surging around your sword. You slice right through an enemy's spear and into their chest. Blood gushes out. You wipe off the blood on your face with a part of your pants you ripe off.
+     
+In the front lines things are bloody. Your lynx on your shield can't even be seen now. Your movements are getting slower.         
+
+<<set $hp =-10>>
+
+There in the heat of battle, you see a soldier running off to the alley ways of the burning buildings. Seems odd, with them alone and hurt. A Garner soldier follows. Garner soldiers must return a good report of their battle, if not their city was thrown into chaos for nought. <span style="color:#d9b3ff">You</span> follow them. The Ganer soldier ends up tackling him from behind. Then you see it is Frankie.
+
+         Frankie:
+                  "Help.. Help.. Help"
+                  
+                  
+[[Comabt->Frankie!!! NO!!]]     
+
+</i>
+
+
+:: Did you do all of this by yourself {"position":"125,675","size":"100,100"}
+<i>        
+        Frank:
+              " Hey I had Sofia to help me with most of it, so it was no big deal. She did run off though before she could eat some breakfast. Talking about some meetings. "
+             
+         You:
+              "Really a meeting this early? "
+              
+          Frank:
+               " Yeah so many meetings today, it's probably just for organizing civilian events for today."
+              
+ [[Ask more about the meeting.]]
+ 
+ [[When are they bringing out the food?]]
+ 
+ </i>
+
+
+:: Do you need help Frank {"position":"450,725","size":"100,100"}
+<i>
+         Frank:
+              "No I am ok. You rest at the table. I got everything under control. You should sit down, talk to Aiden instead."
+              
+         
+[[Ask Aiden what he is preparing for]]
+
+[[Insist on helping]]
+              
+</i>
+
+
+:: Eat {"position":"250,1025","size":"100,100"}
+<i>
+
+The power of food stops everything. Frank is too busy stuffing his face to talk. <span style="color:#d9b3ff">You</span> eat with your family. There is nothing more wholesome and nothing more beautiful. Everyone one of you are a foodie. You look around the table at everyone in happiness. This is what matters.  Nothing else. Felix walks in with some other servents to help pour wine into everyone's glass.
+
+        Felix:
+             "Happy Alabaster Day!!! I would like to thank you all for joining. I know your King would be proud. To the 20th anniversary of the founding of the Alabaster kingdom. Let them have a long rule. Cheers.""
+             
+Everyone cheers and applauses, and the room breaks into laughter and joy. After everyone is done eating one of your sisters comes up to you. She gives you a big hug.
+
+         Ania:
+              "I will be seeing you later today ok. Meet us in the courtyard. We will all be there to have some fun activities for today. Isn't that right Frank?"
+         
+Frank looks up nodding really fast with all the food in his mouth. He can't utter complete sentences. 
+
+          Frank:
+               "Looks up yeh, yeh, I forgot. See yall there"
+               
+<span style="color:#d9b3ff">You</span> look at Ania with excitement. Ok see everyone [[later tonight then]].
+              
+                  
+</i>
+
+
+:: Eat some cake {"position":"375,1275","size":"100,100"}
+<i>
+<span style="color:#d9b3ff">
+You</span> over to cut the cake. The cake is colored white and purple with frosting drwaings on a lynx all around the sides of the cake. It is three layers, and what sits at stop is the 21 candle being lit at the top.  They start signing happy birthday, and saying how grateful they are to be your sibilings. 
+
+            Frankie:
+                   "Mabye because we are the just closest in age, but when our mothers both got us the newest game system at the same time. I remeber how we both opened our presents at the same time. The joy on our mother face as we played soccer together. How you would go out to the pastures and play with the cattle.  Til we were both teenagers thrust into combat training together. If I didn't go through that with you, I don't know if I would have made it.
+<<linkreplace "countine">>
+ <p>  
+            You:
+                  "And you been so crazy brother. Like how you losened your bow strings when no one was looking. Then the arrow barely made it 6 feet out."
+  
+He gives you the knife to cut the cake with a smile. <span style="color:#d9b3ff">
+You</span> go to cut the first slice.
+
+			Felix:
+                 "Everyone your King requests your prescence at once, they are people revolting in the outskirts causing panic.
+
+                                     
+[[Felix, what is it!!!]] 
+
+</p>
+<</linkreplace>>
+</i>
+
+
+:: Enjoy the party {"position":"300,1375","size":"100,100"}
+<i>
+Everyone is eating the cake, drinking, and dancing underneath the beautiful night sky. 
+
+<<if $insight > 2>>
+Though <span style="color:#ffd86b">You</span> notice that Sofia and Aiden aren't here.
+<<else>>
+
+<span style="color:#d9b3ff">You</span> am so glad that everyone can make it today. What a fun Alabaster Day! 
+<</if>>
+The party continues late into the night. <span style="color:#d9b3ff">You</span> give everyone a big hug.
+Afterwards everyone goes to turn in, but Felix comes running into the courtyard.
+
+[[Felix, what is it!!!]]
+
+</i>
+
+
+:: Felix, what is it!!! {"position":"225,1550","size":"100,100"}
+<i> 
+      
+        Felix:
+             "The King summons you urgently. There has been a disturbance in one of the uncontrolled parts of the continent. We need your strength at once my majesties"
+          
+
+[[We will do anything for each other]]
+
+
+[[What's the situation]]
+
+</i>
+
+
+:: Fight back {"position":"1950,1575","size":"100,100"}
+Your a skilled warrior in combat, remember? You deal with the first few officers easily. A commotion stirs. You see a big squadron heading your way.
+
+
+
+1. [[Take out your anger on them!]]
+2.[[Run away!]]
+
+
+:: Fight! {"position":"1350,725","size":"100,100"}
+Your HP: $hp
+Enemy HP: $enemyHP
+
+[[Attack->CombatTurn]]
+
+
+:: Follow Felix {"position":"300,1850","size":"100,100"}
+<i>
+You enter into the King's throne room.
+        
+        King:
+              "The unrestless and foolish people of the southeast Ganer section of the continent are in an upheaval, and have started to attack our Alabaster people residing there. With plans to fight back and conquer our territory. I assign you to deal with these misguided people. HAH, Happy ALabaster Day. Use this as an opportunity to celebrate.
+              
+[[Yes My King]]
+
+[[Why Are They Revolting]]
+
+</i>
+
+
+:: Follow her {"position":"1150,1025","size":"100,100"}
+You arrive at the outpost1. 
+
+The stranger1:
+          We are here, these outpost are the only strands of human civilization in this world. There was a major icnident, before I was even born that is how we eneded up this way. People don't talk about it anymore. Sigh, I am going to get some materials, I would keep a low profile. There is a lot of dangerous people around here. You got to find what you want on your own for now, I got other things to attend to.
+          
+          
+          
+Stranger1 leaves you in the midst of the city, but directs you to talk to the merchants around here before anything.
+
+
+1. Talk to merchant selling some [[type of fruit]]
+2. Talk to merchant selling some [[mechanical parts]]
+3. Talk to merchant selling some [[type of art]]
+
+
+:: For Alabaster {"position":"850,1250","size":"100,100"}
+<i>
+
+The Garner Soldiers and Your army clash. The soldiers behind you rain down electric arrows that pierce some enemies that try to intercept before the city is reached.
+<span style="color:#d9b3ff">You</span> heat up the yellow energy surging around your sword. <span style="color:#d9b3ff">You</span> arrive in the city. 
+
+
+<span style="color:#d9b3ff">You</span> slice right through the first enemy's spear and into their chest. Blood gushes out. <span style="color:#d9b3ff">You</span>  bend down and rip a part off the bottom of your pants. <span style="color:#d9b3ff">You</span> use it to wipe off the blood on your face and fling the blood off your blade.
+
+
+
+<<if $inventory.includes("S_Bow")>>
+
+<<set $hp =+10>>
+
+<</if>>
+
+<span style="color:#d9b3ff">You</span> continue to lead the charge. It feels like only moments past in this sea of destruction. <span style="color:#d9b3ff">You</span> then hear a yell amongst all this noise. <span style="color:#d9b3ff">You</span> look around. Its Frankie wrestling with an enemy soldier.
+
+
+[[Frankie!!! NO!!]] 
+
+
+</i>
+
+
+:: Frankie!!! NO!! {"position":"950,1775","size":"100,100"}
+<i>
+You must defeat Graner soldier to Save? Frankie:
+
+<<set $enemyDifficulty = 12>>
+Your HP: $hp
+Graner's Soldier HP: $enemyHP
+
+[[Attack->Combat_Turn]]
+
+</i>
+
+
+:: GameOver {"position":"1575,725","size":"100,100"}
+[[Monster1]]
+
+
+:: GameOver2 {"position":"1750,1875","size":"100,100"}
+[[Fight back]]
+
+
+:: Give him one of your neckalces {"position":"1325,1200","size":"100,100"}
+
+
+
+:: Go talk with Ania {"position":"0,1300","size":"100,100"}
+<i>
+
+        You:
+             "Thank you for hosting this surprise party."
+             
+         Ania:
+              "Of course, trust this helps us too with all the business going around. I am so glad you have another year."
+              
+         You:
+      	     "I am so glad to have such a sister, between you and me. You are my favorite.
+             And yeh I heard the older ones of us are pretty busy"
+             
+        Ania:
+             " So much change of leadership internal talk going around. I guess that our Father has actually taken some interest in teaching us now how to run a kingdom."
+             
+         You:
+              "Change of....."
+              
+Feliz burst in the room before you could finish.
+
+          Feliz:
+                "Your King needs everyone to prepare for battle, there is unrest in the outskirts."
+                
+
+
+[[Felix, what is it!!!]] 
+
+        
+</i>
+
+
+:: Go to King's Inventory {"position":"550,1950","size":"100,100"}
+<i>
+The King's servent open up his armory. The other sibilings take what they please. What catches your eye is a bow, long, and with blue lines incraved into it. The arrows have the same marking. The sword is double edged with the craving of a lynx on both sides.
+
+
+[[Grab A Sword And Shield]]
+
+[[Grab A Bow And Shield]] 
+</I>
+
+
+:: Grab A Bow And Shield {"position":"375,2200","size":"100,100"}
+<i>
+<<set $inventory.push("S_Bow")>>
+<<set $inventory.push("S_Shield")>>
+
+<<set $hp += 5>>
+
+
+HP is increased to : $hp
+
+As you grab the bow the spiral lines on it light up and the red light treads throughout bow. The string lights up red as well. The bow is so strong you feel its strength. The string is hard to pull, but woven elegantly. 
+
+[[outside the palace]] 
+
+</i>
+
+
+:: Grab A Sword And Shield {"position":"350,2000","size":"100,100"}
+<i>
+<<set $inventory.push("S_Sword")>>
+<<set $inventory.push("S_Shield")>>
+
+<<set $hp += 5>>
+
+
+HP is increased to : $hp
+
+
+When you grab the sword the yellow beam surrounding the edges heat up making it its slicing ability even greater.
+
+Your shield, the alabaster shield all hiers have. It shines on the edges with yellow energy and every couple of seconds the microbots that cover your shield made of osmium, the strongest ore in the land, move like waves on an ocean. On it is encarved the symbol of Alabaster, a purple wolf.
+
+It's time to join the others [[outside the palace]] .
+
+</i>
+
+
+:: Head to the banquet early {"position":"450,450","size":"100,100"}
+<i>
+<span style="color:#d9b3ff">You</span> quickly take a shower and dress up. Then speed walk to the banquet hall. There is a banner up along the long walls: "HAPPY ALABASTER DAY". The tables and chairs are decorated with white and purple ribbons. The platers have flowers carved into them. There is one of your closest brothers decorating the wall, and another sitting down writing at an empty table. <span style="color:#d9b3ff">You</span> greet them both.
+
+             "Hello Frank and Aiden, Happy Alabaster Day!" 
+             
+             Frank & Aiden:
+                   "Happy Alabaster Day!"
+                   
+             Frank:
+                  " I am just putting up this banner before the others get here. I am so happy to see you."
+                  
+             Aiden:
+                  "I am just writing to prepare for a meeting with the king and some officials today."
+                  
+
+[[Do you need help Frank]]
+
+[[Ask Aiden what he is preparing for]]
+                  
+                              
+       
+ </i>
+
+
+:: Hey wait {"position":"450,1025","size":"100,100"}
+<i>
+ 
+ <<set $insight += 5 >>
+ Insight increased to: $insight
+
+		"Hey wait, I am curious now"
+               
+          Aiden:
+               "They mentioned something about the previous kingdom, but we all know that's a done deal. I really don't know anymore."
+               
+<span style="color:#ffd86b">You</span> go to ask him another question, but the rest of your siblings fill the banquet hall. Aiden is lost in your huge crowd of siblings. They sit down, and the food is brought in. Everyone starts eating nonstop.
+
+
+
+[[Eat]]
+
+</i>
+
+
+:: I am going to bed {"position":"1725,0","size":"100,100"}
+You head towards your room. You get to your room and brush your teeth, wash your face, and get your things to take a shower. 
+                            
+                            Someone:
+                                         HAAAAAA! Help, Help!!
+You hear this voice screaming so you folow the screems to the courtyard. When you arrive there all you see is a piece of cloth in the middle of the courtyard. You pick up the piece of cloth to be a torn piece of your cape with the symbol being ripped right through the middle.
+
+[[Where is everyone]]
+
+
+:: I don't want to rule {"position":"1325,1525","size":"100,100"}
+
+
+
+:: I will join you {"position":"1350,1450","size":"100,100"}
+
+
+
+:: I will protect everyone {"position":"1075,1500","size":"100,100"}
+<i>
+
+The Garner Soldiers and Your army clash. The soldiers behind you rain down electric arrows that pierce some enemies.
+<span style="color:#d9b3ff">You</span> heat up the yellow energy surging around your sword. You slice through right through an enemey's spear and into thier chest. Blood gushes out. You wipe off the blood on your face with a part of your pants you ripe off.
+     
+In the front lines things are bloody. Your lynx on your shield can't even be seen now. Your movements are getting slower.         
+
+<<set $hp =-10>>
+
+There in the heat of battle, you see a soldier running off to the alley ways of the burinig buildings. Seems odd, with them alone and hurt. A Garner soldier follows. Garner soldiers must return a good report of thier battle, if not thier city was thrown into choas for nought. <span style="color:#d9b3ff">You</span> follow them. The Ganer soldier ends up tackling him from behind. Then you see it is Frankie.
+
+         Frankie:
+                  "Help.. Help.. Help"
+                  
+                  
+[[Comabt->Frankie!!! NO!!]]     
+
+</i>
+
+
+:: Insist on helping {"position":"650,900","size":"100,100"}
+<i>
+        Frank:
+              " No no, you defintily don't deserve to relax today. You can ask Aiden to keep you company. " 
+              
+
+[[Ask Aiden what he is preparing for]] 
+
+</i>
+
+
+:: Its too late {"position":"750,1975","size":"100,100"}
+<i>
+You don't think you can make it in time. Your hesitation is costly. You try to run over, but the rubble falls in the way.
+The Garner soldier prepares to stabs Frankie in the chest.
+                 You:
+                       Frankiie!!!
+           
+You let out a scream, and blue energy surges around you.
+<span style="color:#8b0000">You</span> beaming with energy.
+
+Then suddenly Aiden comes and cuts down the Graner soldier, he helps Frankie up.
+Next Aiden looks at you and points his sword at you. 
+
+		         Aiden:
+                        "I can't believe my eyes. They were right. Sofia get over here it is time."
+                     
+                        
+                 Frankie:
+                        "What are you doing"
+                        
+                 You:
+                      "Hey I am glad you saved Frankie. What are you talking about though?"
+                      
+The blue light is still surrounding you. 
+
+ Aiden switches weapons to a bow and takes aim. 
+                  
+                  Aiden:
+                        "Don't move, relax. It will take more then this to kill you"
+                        
+[[Chapter Ending]]
+</i>
+
+
+:: Let him go {"position":"500,1275","size":"100,100"}
+,i>
+<span style="color:#d9b3ff">You</span> are surronded by all the rest of your brothers and sisters as they come inot the banquet hall. Aiden fades away into the crowd. The fodd comes in. <span style="color:#d9b3ff">You</span> were trying to be a good brother and listen, but oh well.
+
+
+
+[[Eat]]
+
+</i>
+
+
+:: Let yourself be captured {"position":"1475,1650","size":"100,100"}
+The officers put a collor on you  and walk you away. There lead you trhough these barn doors in the ground. There is a jail cell, full of crooks.
+
+After a while they take you outside the city. There is someone in fancy garments. He pulls a technologically advanced gun.
+
+         Man in fancy garment:
+                            (Sigh) You poor soul, born in the wrong body.
+                            
+The last thing you see is a white and blue ray of light emmiting from the gun.
+
+[[Start over in market]]
+
+
+:: Mayhem {"position":"1600,1700","size":"100,100"}
+1.[[Run away!]]
+2.[[Slaughter them!]]
+
+
+:: Meeting on Alabaster Day? {"position":"325,875","size":"100,100"}
+<i>
+         Frank:
+              " Yeh some meeting like Sofia and some of the others. Maybe about... "
+              
+The rest of the family, the brothers and the sisters walk in shouting.
+
+         All of them:
+               " Happy Alabaster Day!!"
+               
+<span style="color:#ffd86b">You</span> try to ask more, but it is breakfast time!       They all rush in and fill up their seats. The food is brought out shortly after, and now everyone, including Frank, is filling up the mouth with bacon, pancakes, fruit, waffles... and so much more. Food comes first!!
+
+[[Eat]]
+              
+ </i>
+
+
+:: Monster1 {"position":"1500,600","size":"100,100"}
+<<set $enemyHP = 30>>
+<<set $enemyDifficulty = 12>>
+
+She fights the hoard of monsters with grace throwing them off easily. The battle speed is too fast. A few mosnters come your way, she steps in sweeps them like a brush room.
+
+You get knocked on ground in commotion, you never seen these enemies before, are they just large pigs??
+
+From behind another hoard jumps behind 
+
+Stranger1:
+      What an annoyance
+
+She throws a spear, 
+but it misses a few.
+
+The striek from the monsters are piercing. 
+Your chest beats rapidly as the come to devour you.
+A blue field of energy surruonds you.
+
+1. [[Fight!]]
+
+
+:: NO....... {"position":"1075,100","size":"100,100"}
+<<run document.documentElement.style.setProperty("--world-color", "#4b000f");>>
+
+Thrust into another land. (Whooosh) The dry wind scraps ascorss the barren sandy land. Time isn't passing, nothing makes any sense. Mabye hours, a couple minutes pass by. On your knees stunned, the sun beats on you. You star at the symbol on your torn cape. You start to see a stranger approaching. Dressed in a huge sun hat, and long ragged clothing.
+
+Stranger: " You don't see much people still sun bathing out here" (Long sigh)
+
+She lends you a hand.
+
+1. [[take her hand]]
+2.[[ keep head down]]
+
+
+:: Panic consumes you! [Health-appears] {"position":"1175,575","size":"100,100"}
+A white and blue rays of light emmitt from you and blasts the surronding area. All the monsters that charged were balsted back and get vaperized. Almost like they were burned to death. You look around you in horror. The other monsters attacking stranger1 scatter. Stranger1 looks at you not in disbelief, but with a seldom look of worry. 
+  
+  
+          Stranger1:
+                 Never thought there were more than a few of you
+                 
+She helps you up and dust you off. Give you a ragged robe to wear. 
+         
+         Stranger1:
+                Well we are defentily headed to the city know
+                
+   
+          You:
+              What is this, what in the hell is this world
+           
+           Stranger1:
+                    I don't know much about that catergoy of pecular things, but mabye you will find the answer in the outpost.
+ 
+ 
+ 1. [[Follow her]]
+
+
+:: Ready to Fight. {"position":"650,1225","size":"100,100"}
+<i>
+
+Your brothers and sisters in arms and blood plus 100 soldiers behind are marching towrads the viallge. Ania uses a mini telescope of the city as eveyone approaches. Ania announces she sees people with weapons gathering around the entrance as we approach. Aiden and Sofia lead us small steps before the village. Across the way you see the buildings on fire, and people feeling the city. 
+
+			Sofia:
+            	"This is for Alabaster!!! We have dealt with rebels before. And we will do it agian. STAY CLOSE TO ME!!"
+                
+
+ The Alabaster soldiers rush in.
+ 
+<<if $inventory.includes("B_Sword")>>
+You rush in with them, but then Frank pats you on the shoulder. 
+			Frank:
+                 "I saw you got stuck with that thrash of a weapon. Just keep close to me alright."
+                 
+                 "I didn't really have a choice in bringing it. Together though we can handle anything"
+                 
+
+[[Stay with Frankie]]
+
+<<else>>
+
+ [[For Alabaster]]
+
+ [[I will protect everyone]] 
+   
+<</if>>
+
+ </i>
+
+
+:: Run away! {"position":"1375,1750","size":"100,100"}
+You run as fast as you can, not that fast sadly. The officers start to catch up to you. As you run past an alley you see the stranger1.
+
+
+She motions to come her way. 
+She leads you into a bunker underground, and the officers past over it.
+
+       Stranger1:
+                
+                "Do you really think this is the way"
+
+
+:: Savage {"position":"2050,1925","size":"100,100"}
+The walls in some buildings start to crave in. The white and blue rays from your body linger in the air. 
+
+As you look around you see the artisten body burned up from your blast. 
+
+You keep looking and see all the burnden up bodies around you. 
+
+This time the next squadrons come with a strange looking projectile device. 
+
+They fire it at you and it lunches a collar at your throat. It latches on.
+
+You try to blast back, but you can't.
+
+The officers come one by one to hold you down.
+
+They take you outside the city. There is someone in fancy garments. 
+
+They fire an advanced weapon at you.
+
+[[Start over in market]]
+
+
+:: Saved? {"position":"750,2150","size":"100,100"}
+<i>
+Saved?
+
+As you are running you start too lose sight. I blue light blinds you. It is exuding out from your inner being all the way to outside of your body. The Garner soldier charges at you. As on as you reached them the light is burst of out of your body. You finally can see agian. The Graner soldier is on the ground burned. Something is wrong. 
+       
+         You:
+             "Frankie !!! What happened!!"
+         
+         Frank:
+              "Wow what a show of fireworks, I didn't know you could do that...coughs"
+         
+         You:
+              "I don't know what that was, how did you get hurt"
+ 
+ Frank smiles, so thats what they were saying about you. I get it now. You will be ok champ. Frank takes a deep breath.
+          
+          You:
+             " Frankiiiee!!!"
+              
+          You are in a daze. Frankie isn't moving. His body has burnt mars on it. What is he talking about. Frankie There are burnt and charcol marks on the ground around you. 
+
+The surronding enemies saw your display and feld. You stand speechless... The battle continues. The enemies surrodning you have fled. The enemies numbers have thin. You see your bothers and sisters finish the rest of the enemies off as ohters run away.
+Your brothers and sisters come back to see <span style="color:#8b0000">You</span>holding Frankie's body. Weapons ready.
+
+           Aiden:
+                "I should of beleive them. All this time. This creature was pretending to be our brother."
+
+          You:
+              " Whats happening"
+              
+          Aiden:
+               "You are from the old kingdom. Lineage who power brught destruction to this land. You were never our brother, it's been nice knowing you. I am sorry it has to be this way"
+
+Weapons ready the surrond you.
+
+<span style="color:#8b0000">You</span> look at Frankie's body. Blue light beings to emerge from you agian.
+
+<span style="color:#8b0000">You</span> :
+                            "Family"
+
+
+
+[[Chapter Ending]]
+         
+
+
+</i>
+
+
+:: Show him the symbol {"position":"1375,1350","size":"100,100"}
+You decied to show him the symbol.
+
+Art Merchant:
+       
+       Where you get that, I never seen the
+      
+You :
+
+    Its mine, do you know what this is.
+    
+    
+Art merchant:
+
+What is this, put that down, you..... Officers!
+
+You see people dressed in more better clothing start to run up to you.
+You so scared, you don't want them to turn into the those mosnters. 
+
+[[Fight back]]
+
+[[Let yourself be captured]]
+
+
+:: Slap her hand away {"position":"1075,425","size":"100,100"}
+
+
+
+:: Slaughter them! {"position":"1650,2100","size":"100,100"}
+Your HP: $hp
+Enemy HP: $enemy2HP
+
+[[Attack->2ndCombatTurn]]
+
+
+:: Speak to Aiden and Sofia {"position":"200,2150","size":"100,100"}
+<i>
+<<if $insight > 1>>
+
+               "I didn't see you guys at the courtyard, sorry. I see you must have been busy." 
+
+They lift their heads up quickly and, but put their heads back down into a tablet they are staring at.
+                "Hey guys, sibilings!!"
+              
+                
+          Aiden:
+               "Calm down man. No need ot get angry."
+          Sofia:
+               "Yes we are just busy brothers."
+               
+               "Well then, welll..."
+               
+Aiden and Sofia freeze for a second.
+                
+                "You know I turned 21 today!!"
+                
+		 Sofia:
+              "Oh yes of course your birthday. happy birthday. Feeling any different?
+              
+          Aiden:
+               "OOOH yeh 21, wow"
+               
+          You::
+                "Just thought I tell you"
+                
+Aiden and Sofia say nothing else and just nod at you as they walk past and continue walking through and talking about the army.
+
+<<if $inventory.includes("S_Sword")>>
+Aiden as he passes by you
+         Aiden:
+              "I was thinking those with special weapons will lead the attack. Do you mind?"
+         You:
+              "Of course not brother. I will fight for the family"
+         
+<<else>>
+    Sofia looks back at you. 
+         Sofia:
+              "Oh too bad for not getting a special weapon or shield, actually I guess you don't need it huh."
+<</if>>
+ 				
+<<else>>
+
+Aiden and Sofia continue to stare at a tablet. You stare at them for a little..
+ 
+           "Hello, can you speak to me. Tell me what's really happening."
+            
+           Sofia:
+            "Oh didn't see you. Don't worry, it's just what the King told you. Some rebels, go back to you post soon.
+            Aiden:
+                 "We are simply calming down things, so all people have some peace in the lives they make. "
+                
+            "Oh ok, yeh I get that"
+
+Aiden and Sofia go back to staring at the tablet.
+You go back to get in your vehicle confused by their actions.
+
+<</if>>
+
+[[Take Truck]]
+</i>
+
+
+:: Start over in market {"position":"2100,1400","size":"100,100"}
+[[type of art]]
+
+
+:: Stay with Frankie {"position":"700,1600","size":"100,100"}
+<i>
+
+Your unit is smaller than the rest. The enemy is many in number. Though together <span style="color:#d9b3ff">You</span> all fight well. Thanks to Frankie watching your back you he slashed down anyone that gets near a fight you are in with his glowing spear. The fire in the city starts to spread.<span style="color:#d9b3ff">You</span> start to get weary of the buildings, but the Garner troops don't care. They keep coming through in hordes to overwhelm.
+
+Frank is near fighting back any enemy, when the enemy,corned) attacks the building they are next to. It starts crumbling. The enemy tries to flee and pushes. The two start to wrestle. A piece of rubble hits Frankie. He goes down, and the Ganer's soldier is standing over him.<span style="color:#d9b3ff">You</span> run towards Frankie. 
+
+[[Frankie!!! NO!!]]
+
+[[Its too late]]
+
+</i>
+
+
+:: Steal it {"position":"1750,1400","size":"100,100"}
+You the art piece away from here and shout asking what this means. Everyone start to look at you like crazy, and someone summons the officers. They come to stop you!
+
+
+
+1. [[Fight back]]
+
+
+:: StoryInit {"position":"25,200","size":"100,100"}
+<<set $insight = 0>>
+<<set $cosmic_energy = 3>>
+<<set $strength = 15>>
+<<set $maxHP = 50>>
+<<set $hp = $maxHP>>
+<<set $inventory = [ ]>>
+<<set $max_eHP = 40>>
+<<set $enemyHP = $max_eHP>>
+
+
+:: Sure, glad you are safe {"position":"1525,250","size":"100,100"}
+You follow your sibiling, but filled with an uneasy feeling agian. You follow him to a outside court hall. You look around.
+
+You: 
+ [[Where is everyone]]
+
+
+:: Take Hawk {"position":"1425,1900","size":"100,100"}
+<i>
+You all jog into the Hawk, andsit on either side. There are seats with harness that come down. The space is wide, but not a high cieling. You glare upon the whhite bright whites lined up on the middle of the cieling. After putting on your harness Ania sees you siting across from you.
+
+             Ania:
+                   " Sorry your part got interrupted"
+                
+             You:
+                 "The people of the
+                 
+</i>
+
+
+:: Take Truck {"position":"600,350","size":"100,100"}
+<i>
+
+
+
+Arriving at the battle field. The army, not all of it, suround the land Garner. They stop outside the land. Everyone gets out and in the distant fires rage throught the stone city and its small village like houses. Distant screams can be heared. A man in golden armor and jewels comes ot the fron of the group.
+
+         Yanese:
+              "Hello troops, today we make sure to quench the thirst of those who want injustice to rain in these lands. By slashing thier faces.""
+              
+         Troops:
+              "YEEEEEEEHHHHH"
+         
+         Yanese:
+               "But only some of us will live that glory today. Sibling, prince  nd princesses step out. The King orders you to deal with this rebels, and show us your mighty strength.
+           
+The younger sibilings like You and Frank look confised. Though the older ones like Aiden and Sofia simply step out and head to the front.
+
+          Yanese:
+               "By orders of the King in tradition. You shall fight with limited support from us. To not only pratice your skills, but to see if you are fight ti be heirs to tht throne. Don't worry we will be sending some troops in with you, but until things get too bad. We are majority goign to be sitting right here"
+       
+
+[[Ready to Fight.]]
+
+[[Did we try reasoning with them]]
+
+</i>
+
+
+:: Take out your anger on them! {"position":"1450,1500","size":"100,100"}
+Your HP: $hp
+<<set $enemy2HP = 50>>
+<<set $enemy2Difficulty = 20>>
+
+Enemy HP: $enemy2HP
+
+
+
+[[Attack->2ndCombatTurn]]
+
+
+:: Take time getting ready {"position":"275,550","size":"100,100"}
+<i>
+<span style="color:#d9b3ff">You</span> head to the banquet hall as soon as you finish your morning routine. Walking in the banquet hall there is a banner up along the long walls: "HAPPY ALABASTER DAY".
+
+One of your closest brothers is sitting down at the table and yawning.<span style="color:#d9b3ff"> You</span> greet him.
+              
+         You:
+               " Happy Alabaster Day! "
+               
+         Frank:
+               " Happy Alabaster Day! I am so glad to see you. I just finished putting up the decorations! The others need to get here quickly. "
+         
+         You:
+               " Yeh where are the others, have you seen them? "
+               
+          Frank:
+                 "Well I know Aiden isn't coming. He just left. Had some place to be. The rest will get here soon, they are always fashionable late."
+                 
+ [[What is Aiden doing]]
+ 
+ [[Did you do all of this by yourself]]
+                 
+</i>
+
+
+:: There are others {"position":"1225,1125","size":"100,100"}
+UrRace1:
+
+	Yes I am one of you. You know only what those creatures have told you. I have kept my powers secrete only used thme when necessarry. There are some around here with technology from the other worlds, that have the means to possible stop me if given a good chance. Just like how they slaughtered us in your world, by those lowley servents taking us by suprised. Though with someone I cna trust, one of my actually people with me, we can watch each other's back and rule more than as a chancelor, but as a king.
+    
+ 
+
+[[I will join you]]
+[[I don't want to rule]]
+
+
+:: Um do you have any other ones {"position":"1500,1150","size":"100,100"}
+
+
+
+:: We will do anything for each other {"position":"425,1725","size":"100,100"}
+You: 
+              "Whatever it is we can handle it together. Come let us walk over together."
+   
+<span style="color:#d9b3ff">You</span> give Felix a reassuring smile and pat himon the shoulder. 
+         
+         Felix whimpers, and looks way. 
+         
+         Felix:
+              "Follow me highnesses"
+              
+              
+[[Follow Felix]]
+
+
+:: What is Aiden doing {"position":"300,700","size":"100,100"}
+<i>
+          
+<<set $insight += 2 >>
+Insight increased to: $insight
+
+          Frank:
+                "He was preparing from some meeting I think. I don't really know. He didn't say much."
+               
+               
+               
+[[Meeting on Alabaster Day?]]
+
+</i>
+
+
+:: What is that symbol! {"position":"1725,1200","size":"100,100"}
+Art Merchant looks at you startled..
+
+               This thing you, you like it , huh. Its an old thing, saw it in some old glassess and worthless jewelry a while back. You want it, well how about 15 coins, then.
+ 
+     
+You realize you have no money, what are even those coins. You ponder in doubt and fiddle with your jewlery. Oh your jewlery, you have never taken off your necklaces, and you still have some rings around your fingers. Though you could just show him the symbol and explain. These things were the last you have of home. But who cares, given to you by you family, those people.
+
+1. [[Give him one of your neckalces]]
+
+   
+2. [[Show him the symbol]]
+   
+3. [[Steal it]]
+
+
+:: What's the situation {"position":"275,1700","size":"100,100"}
+<i>
+
+
+      You:
+          "It's my birthday party, what's the situation? Can't our whole huge army handle this. I would love to help of course though."
+          
+      Felix:
+           " The people are in panic. The King requested his children specifically. He must trust you all a great deal. Just because we are the lynx, doesn't mean we isolate ourselves as well."
+           
+
+You look around to your siblings waiting on your decision.
+
+<span style="color:#d9b3ff">You</span> let out a heavy sigh. let us go to fight for our kingdom.
+
+
+[[Follow Felix]] 
+
+</i>
+
+
+:: When are they bringing out the food? {"position":"25,1000","size":"100,100"}
+<i>
+As soon as you try to ask,  all the rest of your sibilings come in and crowd up the room. The food is brought out and everyone, including Frank, is stuffing there face with waffles, pancakes, bacon, eggs.. and so much more. Who can resist this food.
+
+
+
+[[Eat]]
+</i>
+
+
+:: Where is everyone {"position":"1750,100","size":"100,100"}
+You are looking around the courtyard to look for your family. Then almost appearing out of no where.
+
+           Sibiling1: 
+                    "When you were kept, I heard all the bad ideas and slander you were given before you could even talk. Is it sad really"
+           
+           You look, and sibiling1 is standing behind in a strange looking cloak and is , carrying something. Though what he is carrying is covered by your cloak. As he is speaking you see more of your sibilings start to crowd behind them. Some with faces of disgust you never seen before, and some with faces of sadness. 
+           
+           You: 
+                  "What's going on"
+           
+           Sibiling1(**Sighs**) 
+                                              
+He takes out one of his hands in the cloak holding a controller. He pushes a button, and isntantly a portal opens behind you. You insticivley run away from it, but before you get anywhere. He throws the controller down, and revelas what other thing he is carrying. He points some king a projectile device at you, and then (blast). Boom, it hits you, and you are cast into the protal. You land on the other side wounded and tired. You look back through the portal to see the rest of your family looking at you.
+                
+                Sibiling1:
+                             "Goodye brother"
+                             
+He is handed the controller. he hits a button. The portal closes. He pulls out of his pocket your cape,torn, and gives it to you as the portal closes.
+                 
+
+You:
+
+[[NO.......]]
+
+
+:: Why Are They Revolting {"position":"125,1725","size":"100,100"}
+<i>              
+<span style="color:#ffd86b">You</span> ask why they are revolting to the King.
+         King:
+              "What do you mean why? Did I tell you to talk. You think I make these decisions lightly. They are revolting because they think the ideas of the unknown past are better than the future Alabaster has brought upon this land. We give them many resources, but yet they still bite our hand. Felix handle this one, no special weapons from my armoury for this one. I hope this teaches you how hard it was for everybody to bring about this peace . There is no other way sadly. You all are dismissed. I will be waiting to hear about your victory."
+   
+The siblings break up and get ready for battle. Grabbing weapons, armor, and supplies from the King's armoury. Though Felix stops you.
+
+         Felix:
+              "You stay here young sir. I am sorry but no special weapons for you like the King said. You will take a normal, no technological advancements. What we used ot fight with. AND NO SHIELD. Better to give it to someone else. Of course you will get armor like everyone else, and wouldn't want you to actually get harmed. Don't worry it will be fine; these fractions are very weak. When I was your age I would fight them easily all the time. "
+
+A servant gives you a normal sword
+
+<<set $inventory.push("B_Sword")>>
+
+Basic sword acquired.
+
+Let us go join the others [[outside the palace]].
+              
+          
+              
+</i>
+
+
+:: Win {"position":"1425,1075","size":"100,100"}
+[[Panic consumes you!]]
+
+
+:: Yes My King {"position":"550,1825","size":"100,100"}
+<i>              
+       King:
+              "Felix gets them ready and sends them out. They are allowed to pick from my inventory of weapons and armor this time. For such an occasion we must show ourselves strong."
+              
+              
+All your siblings go to grab a weapon out of the King's armoury. It is sad these people decided to revolt. Today of all days. Now the king has to be less tolerant to show the kingdom's not to be tried with. <span style="color:#d9b3ff">You</span> must join the fight and help out your family.
+
+[[Go to King's Inventory]]
+
+
+</i>
+
+
+:: You got it boss {"position":"1400,1850","size":"100,100"}
+King looks at Felix in a small glare of contempt. 
+
+     King:
+          "Felix, teach this youngling. Kick him out the kingdom.""
+          
+You make a worrisome face, and looking up on how to excuse yourslef.
+
+	King:
+         "HAHAH, .... Just kidding child, now go fight. Follow Felix. It should be interesting for you this time..""
+         
+King makes a very wide grin.
+
+
+:: intro [Intro] {"position":"125,375","size":"100,100"}
+<i>
+
+<p id="p1">
+Alabaster is a kingdom that has brought prosperity to the land. All the books and records of the previous kingdom don't exist. Though it is said that the previous kingdom rule led the land into ruin.  It has been 20 years since the reign of Alabaster started. Most of the continent has united under Alabaster for peace and to rebuild/recover from whatever devastation that occurred under the <<link "previous kingdom rule.">><<run $("#p2").addClass("show")>><</link>>
+</p><p id="p2" class="fadein">
+Alabaster has very advanced technology beyond the current times, though they still rule humbly and the people live in a flux of technology and land. Certain parts of the country are still <<link "unstable.">><<run $("#p3").addClass("show")>><</link>>
+</p><p id="p3" class="fadein"><span style="color:#d9b3ff">
+You </span>live in the heart of Alabaster in one the royal places as one of many siblings that are all heirs to the throne. Even though you have different mothers they are all close family fighting for what is right and<span style="color:#d9b3ff"> You </span>love them all. 
+
+[[Begin]]
+</p>
+ </i>
+
+
+:: later tonight then {"position":"250,1225","size":"100,100"}
+<i>
+
+Later tonight.....
+
+<span style="color:#d9b3ff">
+You</span> walk into the courtyard. The courtyard is full of beautiful exotic plants. The night sky is illuminating and the stars are breathtaking. There is a fountain in the middle of the courtyard. Though to your surprise there is a crowd of your siblings already here as well.
+          
+         All of them:
+              "Happy 21st birthday!!!""
+              "You thought we forgot about you!!!!"
+              
+ All of them run up and hug you. Revealed behind them on a table there was a cake as well.<span style="color:#d9b3ff"> You</span> are filled with joy.
+        You:
+ 		     "I love you all. I thought everybody forgot about me."
+        
+[[Enjoy the party]]
+
+[[Go talk with Ania]]
+
+[[Eat some cake]]
+        
+        
+ 
+</i>
+
+
+:: mechanical parts {"position":"1750,1050","size":"100,100"}
+
+
+
+:: outside the palace {"position":"25,1950","size":"100,100"}
+<i>
+Outside the palace is several vehicles ready to go. The night steels everyone's resolve. There are lights along the sides fo the road leading from the palace. Models of multiple flying mobiled like a hawk floating above the ground. Besides them trucks with an open back to house soldiers. A soldier delivers your amor to put on. Your amor is made of shock absorbing wecurite. It is red crimson and has the emblem of Alabaster, on the front of it.
+
+You see Aiden and Sofia ordering some troops around.
+
+[[Speak to Aiden and Sofia]]
+
+[[Take Truck]]
+
+
+   
+</i>
+
+
+:: take her hand {"position":"1350,475","size":"100,100"}
+Stranger1: 
+         " Come one get up , its a long walk, you don't want to let them catch you" 
+           (She seems to be in a rush now)
+
+You and the stranger1 start walking, she starts to look around more, moving her head back and forth.
+
+................................................
+...............................
+......................................
+You hear vibrations in the ground.
+
+[[Monster1]]
+
+
+:: type of art {"position":"1875,1125","size":"100,100"}
+Art merchant(looks very old and wise):
+         
+         Hello, my small pieces are only going for 5 coins. For big pieces, that will be 15 coin.
+         I do history pieces, pure inspiration pieces, and imaganitive landscapes. Here you                can't flip through, but I can go over them for you!
+         
+         
+
+In the pieces of art they flip through you see that symbol on your cape. Still crumbled up in your hand, you clenched it. 
+
+You:
+
+1. [[What is that symbol!]]
+
+2. [[Um do you have any other ones]]
+
+
+:: type of fruit {"position":"2000,1075","size":"100,100"}
+Fruit Merchant:
+ 				 "Hey get away"
+                 
+ They push a kid away from his fruit stand. He looks at you approaching.
+ 
+        Fruit Merchant:
+                       "Get your fruit here, fresh, and rare"
+                       
+
+1. [[Ask about why is fruit rare]]
+
+2. [[Ask for some fruit]]
+
+
+:: StoryStylesheet [stylesheet]
+:root {
+    --world-color: #4e257a;
+    transition: background-color 4s linear;
+}
+
+body {
+    background-color: var(--world-color);
+}
+
+.fadein {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.fadein.show {
+    opacity: 1;
+}
